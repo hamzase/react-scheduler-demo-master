@@ -1,0 +1,17 @@
+.site .navbar {
+    box-shadow: 2px 0px 9px 2px #ccc;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+}
+
+.navbar .user-ciclo {
+    max-width: 50px;
+    border-radius: 100%;
+}
+
+.navbar .btn-menu {
+    background-color: transparent;
+    border: none;
+    color: rgb(163, 152, 152);
+    font-size: 30px;
+}
