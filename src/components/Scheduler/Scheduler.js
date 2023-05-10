@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import 'dhtmlx-scheduler';
 import 'dhtmlx-scheduler/codebase/dhtmlxscheduler_material.css';
+import axios from 'axios';
+
 
 const scheduler = window.scheduler;
 
@@ -62,7 +64,6 @@ export default class Scheduler extends Component {
     componentDidUpdate() {
         scheduler.render();
     }
-
     setHoursScaleFormat(state) {
         scheduler.config.hour_date = state ? '%H:%i' : '%g:%i %A';
         scheduler.templates.hour_scale = scheduler.date.date_to_str(scheduler.config.hour_date);

@@ -9,20 +9,25 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "@fortawesome/fontawesome-free/js/all.js";
 
 
-
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import './App.css';
-
-const data = [
-    { start_date:'2023-05-7 2:00', end_date:'2023-05-7 4:00', text:'Event 1', id: 1},
-    { start_date:'2023-05-8 1:00', end_date:'2023-05-8 2:00', text:'Event 2', id: 2},
-];
 
 class App extends Component {
     state = {
         currentTimeFormatState: true,
-        messages: []
+        messages: [],
+        events: []
     };
+
+    componentDidMount() {
+        this.fetchEvents();
+    }
+
+    fetchEvents = async () => {
+        const response = await fetch('http://localhost:8082/Event');
+        const events = await response.json();
+        this.setState({ events });
+    }
 
     addMessage(message) {
         const maxLogLength = 5;
@@ -50,8 +55,28 @@ class App extends Component {
         });
     }
 
+    handleNewEvent = async (newEvent) => {
+        const response = await fetch('http://localhost:8082/Event', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newEvent)
+        });
+        if (response.ok) {
+            const addedEvent = await response.json();
+            this.setState(prevState => ({
+                events: [...prevState.events, addedEvent]
+            }));
+            this.logDataUpdate('added', addedEvent, addedEvent.id);
+        } else {
+            this.addMessage(`Failed to add event: ${response.statusText}`);
+        }
+    }
+    
+
     render() {
-        const { currentTimeFormatState, messages } = this.state;
+        const { currentTimeFormatState, messages, events } = this.state;
         return (
             <div>
                 <div>
@@ -62,9 +87,10 @@ class App extends Component {
                                     <div className='scheduler-container'>
                                         <Home />
                                         <Scheduler
-                                            events={data}
+                                            events={events}
                                             timeFormatState={currentTimeFormatState}
                                             onDataUpdated={this.logDataUpdate}
+                                            onNewEvent={this.handleNewEvent}
                                         />
                                     </div>
                                 }/>
