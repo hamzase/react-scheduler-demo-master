@@ -82,6 +82,13 @@ export default class Scheduler extends Component {
     scheduler.init(this.schedulerContainer, new Date());
     scheduler.clearAll();
     scheduler.parse(events);
+    this.fetchEvents();
+  }
+
+  fetchEvents = async () => {
+    const response = await fetch('http://localhost:8082/Event');
+    const events = await response.json();
+    scheduler.parse(events);
   }
 
   shouldComponentUpdate(nextProps) {

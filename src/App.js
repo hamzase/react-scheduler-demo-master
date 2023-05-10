@@ -76,6 +76,9 @@ class App extends Component {
         }
     }
     
+    
+    
+    
     render() {
         const { currentTimeFormatState, messages, events, loading } = this.state;
         if (loading) {
@@ -106,6 +109,7 @@ class App extends Component {
             </div>
         );
     }
+    
 }
 
 export default App;
