@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Scheduler from './components/Scheduler';
 import Toolbar from './components/Toolbar';
 import MessageArea from './components/MessageArea';
-import Menu from "./component/Menu/Menu";
+import Menu from "./component/Menu/Menu"; // updated path
 import Home from "./pages/Home"
 import Tet from "./pages/Tet"
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -16,7 +16,8 @@ class App extends Component {
     state = {
         currentTimeFormatState: true,
         messages: [],
-        events: []
+        events: [],
+        loading: true
     };
 
     componentDidMount() {
@@ -26,7 +27,7 @@ class App extends Component {
     fetchEvents = async () => {
         const response = await fetch('http://localhost:8082/Event');
         const events = await response.json();
-        this.setState({ events });
+        this.setState({ events, loading: false });
     }
 
     addMessage(message) {
@@ -56,7 +57,8 @@ class App extends Component {
     }
 
     handleNewEvent = async (newEvent) => {
-        const response = await fetch('http://localhost:8082/Event', {
+        console.log('handleNewEvent called');
+        const response = await fetch('http://localhost:8082/Event/save', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -74,9 +76,11 @@ class App extends Component {
         }
     }
     
-
     render() {
-        const { currentTimeFormatState, messages, events } = this.state;
+        const { currentTimeFormatState, messages, events, loading } = this.state;
+        if (loading) {
+            return <div>Loading...</div>;
+        }
         return (
             <div>
                 <div>
@@ -94,9 +98,7 @@ class App extends Component {
                                         />
                                     </div>
                                 }/>
-                            </Routes>
-                            <Routes>
-                                <Route path="/Tet" element={<Tet/>} /> 
+                                <Route path="/Tet" element={<Tet />} /> {/* new route */}
                             </Routes>
                         </Menu>
                     </BrowserRouter>
