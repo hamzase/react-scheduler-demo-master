@@ -56,26 +56,7 @@ class App extends Component {
         });
     }
 
-    handleNewEvent = async (newEvent) => {
-        console.log('handleNewEvent called');
-        const response = await fetch('http://localhost:8082/Event/save', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newEvent)
-        });
-        if (response.ok) {
-            const addedEvent = await response.json();
-            this.setState(prevState => ({
-                events: [...prevState.events, addedEvent]
-            }));
-            this.logDataUpdate('added', addedEvent, addedEvent.id);
-        } else {
-            this.addMessage(`Failed to add event: ${response.statusText}`);
-        }
-    }
-    
+   
     
     
     

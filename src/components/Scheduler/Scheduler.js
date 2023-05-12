@@ -59,6 +59,7 @@ export default class Scheduler extends Component {
         });
     });
 
+
     scheduler._$initialized = true;
   }
 
