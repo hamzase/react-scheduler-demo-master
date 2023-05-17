@@ -12,6 +12,10 @@
 .navbar .btn-menu {
     background-color: transparent;
     border: none;
-    color: rgb(163, 152, 152);
+    color: #00308F;
     font-size: 30px;
+}
+
+h2{
+    color: #00308F;
 }

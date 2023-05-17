@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import Scheduler from './components/Scheduler';
-import Toolbar from './components/Toolbar';
-import MessageArea from './components/MessageArea';
+import Scheduler from './component/Scheduler';
 import Menu from "./component/Menu/Menu"; // updated path
 import Home from "./pages/Home"
 import Tet from "./pages/Tet"
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "@fortawesome/fontawesome-free/js/all.js";
 
+import LoginForm from './components/loginform';
+
+
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import './App.css';
+import Welcome from './pages/Welcome';
 
 class App extends Component {
     state = {
@@ -25,7 +27,7 @@ class App extends Component {
     }
 
     fetchEvents = async () => {
-        const response = await fetch('http://localhost:8082/Event');
+        const response = await fetch('http://localhost:8083/Events');
         const events = await response.json();
         this.setState({ events, loading: false });
     }
@@ -56,40 +58,54 @@ class App extends Component {
         });
     }
 
-   
-    
-    
-    
+
     render() {
-        const { currentTimeFormatState, messages, events, loading } = this.state;
+        const { loading, events, currentTimeFormatState } = this.state;
         if (loading) {
             return <div>Loading...</div>;
         }
         return (
             <div>
-                <div>
-                    <BrowserRouter>
-                        <Menu>
-                            <Routes>
-                                <Route path="/" element={
-                                    <div className='scheduler-container'>
-                                        <Home />
-                                        <Scheduler
-                                            events={events}
-                                            timeFormatState={currentTimeFormatState}
-                                            onDataUpdated={this.logDataUpdate}
-                                            onNewEvent={this.handleNewEvent}
-                                        />
-                                    </div>
-                                }/>
-                                <Route path="/Tet" element={<Tet />} /> {/* new route */}
-                            </Routes>
-                        </Menu>
-                    </BrowserRouter>
-                </div> 
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<LoginForm />} />
+                        <Route path="Welcome" element={<Welcome />} />
+                        <Route path="/scheduler" element={
+                            <Menu>
+                                <div className="scheduler-container">
+                                    <Home />
+                                    <Scheduler
+                                        events={events}
+                                        timeFormatState={currentTimeFormatState}
+                                        onDataUpdated={this.logDataUpdate}
+                                        onNewEvent={this.handleNewEvent}
+                                    />
+                                </div>
+                            </Menu>
+                        } />
+                        <Route path="/Tet" element={
+                            <Menu>
+                                <div className="scheduler-container">
+                                    <Home />
+                                    <Tet />
+                                </div>
+                            </Menu>
+                        } />
+                          <Route path="/EmployeeS" element={
+                            <Menu>
+                                <div className="scheduler-container">
+                                    <Home />
+                             
+                                </div>
+                            </Menu>
+                        } />
+                    </Routes>
+                </BrowserRouter>
             </div>
         );
     }
+    
+    
     
 }
 

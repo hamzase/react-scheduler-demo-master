@@ -1,6 +1,6 @@
 .menu {
     width: 300px;
-    background-color: #101827;
+    background-color: #13274F;
     min-height: 100vh;
     position: fixed;
     top: 0; left: 0;
@@ -28,10 +28,10 @@
 }
 
 .menu .logo {
-    color: #fff;
-    text-align: center;
-    font-size: 30px;
+    width: 12rem;
     padding: 20px 0;
+    text-align: center;
+    margin-left: 3rem;
 }
 
 .menu .divisor {
@@ -53,9 +53,9 @@
 }
 
 .menu .conteudo-menu .item-menu .link-menu {
-    color: rgb(207, 205, 205);
+    color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     display: block;
     font-weight: bold;
     padding: 7px 15px;
@@ -63,12 +63,12 @@
     transition: all 0.5s;
     cursor: pointer;
     position: relative;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .menu .conteudo-menu .item-menu .link-menu.active{
-    color: #12b981;
-    background-color: #242a38;
+    color: #1F75FE;
 }
 
 .menu .conteudo-menu .item-menu .link-menu span {
@@ -76,7 +76,7 @@
 }
 
 .menu .conteudo-menu .item-menu .link-menu:hover {
-    background-color: #242a38;
+    color: #1F75FE;
 }
 
 .menu .conteudo-menu .item-menu.subitem h3.link-menu::after {
@@ -105,7 +105,7 @@
 }
 
 .menu .conteudo-menu .item-menu.sub li a.link-menu {
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .menu .conteudo-menu li.item-menu {

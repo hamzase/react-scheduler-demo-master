@@ -1,0 +1,25 @@
+.scheduler-container {
+    height: calc(100vh - 20px - 100px);
+    width: 100%;
+    margin-top: -43px;
+    
+}
+
+.dhx_scale_hour {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  
+.my-event-class {
+    background-color: #ff0000;
+}
+
+.dhx_cal_event.my-event-class div {
+        background-color: red;
+        border-color: red;
+}
+
+
