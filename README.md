@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
 	<a href="https://dhtmlx.com/blog/use-dhtmlx-scheduler-component-react-js-library-demo/">
 		<img src="https://dhtmlx.github.io/react-widgets/static/logo_r.svg" width="150" height="55">
@@ -50,3 +51,6 @@ Read us on [Medium](https://medium.com/@dhtmlx) :newspaper:
 Follow us on [Twitter](https://twitter.com/dhtmlx) :feet:
 
 Like our page on [Facebook](https://www.facebook.com/dhtmlx/) :thumbsup:
+=======
+# Health-Hub-Front
+>>>>>>> 3cdc2df49f76968c966a56d8e652510a5202415d
