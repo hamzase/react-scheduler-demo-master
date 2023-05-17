@@ -5,6 +5,8 @@ import axios from 'axios';
 import './Scheduler.css';
 
 
+
+
 const scheduler = window.scheduler;
 
 export default class Scheduler extends Component {
@@ -29,7 +31,7 @@ export default class Scheduler extends Component {
       
 
       // Save the new event to the backend
-      axios.post('http://localhost:8082/Event/save', ev)
+      axios.post('http://localhost:8083/Event/save', ev)
         .then(response => {
           console.log('Event saved:', response.data);
         })
@@ -44,7 +46,7 @@ export default class Scheduler extends Component {
       }
 
       // Update the changed event in the backend
-      axios.put(`http://localhost:8082/Event/${id}`, ev)
+      axios.put(`http://localhost:8083/Event/${id}`, ev)
         .then(response => {
           console.log('Event updated:', response.data);
         })
@@ -59,7 +61,7 @@ export default class Scheduler extends Component {
       }
 
       // Delete the event from the backend
-      axios.delete(`http://localhost:8082/Event/${id}`)
+      axios.delete(`http://localhost:8083/Event/${id}`)
         .then(response => {
           console.log('Event deleted:', response.data);
         })
@@ -121,7 +123,7 @@ export default class Scheduler extends Component {
   
   
   fetchEvents = async () => {
-    const response = await fetch('http://localhost:8082/Event');
+    const response = await fetch('http://localhost:8083/Events');
     const events = await response.json();
     scheduler.parse(events);
   }

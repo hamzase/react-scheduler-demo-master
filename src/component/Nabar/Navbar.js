@@ -9,6 +9,8 @@ const Navbar = ({ tipoMenu, handleMenu }) => {
                 <i className="fas fa-bars "></i>
             </button>
 
+            <h2>HEALTH HUB</h2>
+
             <img src="/images/user.png" className="user-ciclo" alt="user" />
         </div>
     );

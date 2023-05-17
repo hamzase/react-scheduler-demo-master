@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 const ItemMenu = ({ children, title, icon }) => {
 
     // Informa se o menu esta aberto ou fechado

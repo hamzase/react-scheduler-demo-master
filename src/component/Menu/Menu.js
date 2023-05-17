@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from "../Nabar/Navbar";
+
 import ItemMenu from "./ItemMenu";
 import "./Menu.style.css";
 
@@ -17,46 +18,59 @@ const Menu = ({ children }) => {
     return (
         <>
             <div className={`menu ${open}`}>
-                <h1 className="logo">Logo Aqui</h1>
+                <img src="/images/ntt.png" className="logo" />
                 <hr className="divisor" />
 
                 <ul className="conteudo-menu">
                     {/* Menu sem Dropdow */}
-                    <li className="item-menu">
+                    {/* <li className="item-menu">
                         <NavLink className="link-menu" to="/">
                             <i class="fa-solid fa-chart-simple"></i>
-                            <span>Dashboard</span>
+                            <span>Appointment</span>
                         </NavLink>
-                    </li>
+                    </li> */}
 
                     {/* Menu com Dropdow */}
-                    <ItemMenu title="Usuários" icon="fa-solid fa-user">
+                    {/* <ItemMenu title="List Employee" icon="fa-solid fa-user">
                         <li>
                             <NavLink className="link-menu" to="/usuarios/cadastrar">
                                 <i class="fa-solid fa-user-plus"></i>
-                                <span>Novo Usuário</span>
+                                <span>All reservation</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink className="link-menu" to="/usuarios/listar">
                                 <i class="fa-solid fa-user-plus"></i>
-                                <span>Todos os Usuários</span>
+                                <span>Test</span>
                             </NavLink>
                         </li>
-                    </ItemMenu>
+                    </ItemMenu> */}
 
-                    <ItemMenu title="Clientes" icon="fa-solid fa-user">
+                    <ItemMenu title="Doctor Test" icon="fa-solid fa-user">
                         <li>
-                            <NavLink className="link-menu" to="/clientes/cadastrar">
-                                <i class="fa-solid fa-user-plus"></i>
-                                <span>Novo Cliente</span>
+                            <NavLink className="link-menu" to="/scheduler">
+                                <i class="fa-solid fa-hospital"></i>
+                                <span>Tetouan</span>
+                            </NavLink>
+                        </li>
+                        
+                        <li>
+                            <NavLink className="link-menu" to="/EmployeeS">
+                                <i class="fa-solid fa-hospital"></i>
+                                <span>Casablanca</span>
                             </NavLink>
                         </li>
                         
                         <li>
                             <NavLink className="link-menu" to="/Tet">
-                                <i class="fa-solid fa-user-plus"></i>
-                                <span>Todos os Clientes</span>
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <span>My Appointment</span>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="link-menu" to="/Welcome">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <span> welcome</span>
                             </NavLink>
                         </li>
                     </ItemMenu>

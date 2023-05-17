@@ -1,0 +1,5 @@
+.scheduler-container {
+    height: calc(100vh - 20px - 100px);
+    width: 100%;
+    margin-top: -43px;
+}
